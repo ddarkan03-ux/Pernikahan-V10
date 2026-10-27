@@ -205,6 +205,7 @@ button{font-family:inherit;cursor:pointer}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 .err{padding:60px 24px;text-align:center}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+.pend{display:none!important}
 </style>
 </head>
 <body class="lock">
@@ -511,9 +512,19 @@ function form(){
 
 /* ---------- pengaturan dari admin ---------- */
 function terapkan(){
-  $$('#bank [data-r]').forEach(function(e){e.style.display=S.rek[+e.dataset.r]===false?'none':''});
-  var hd=(D.hadiah||[]).length||D.alamatKado;
-  if(S.turut&&D.turutMengundang&&D.turutMengundang.length){var t=$('#turut');t.style.display='';$('#tm').innerHTML=D.turutMengundang.map(esc).join('<br>');t.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})}
+  clearTimeout(terapkan.t);
+  var vis=0;
+  $$('#bank [data-r]').forEach(function(e){var h=S.rek[+e.dataset.r]===false;e.style.display=h?'none':'';if(!h)vis++});
+  var hs=$('#hadiah');
+  if(hs){hs.classList.remove('pend');hs.style.display=(vis||D.alamatKado)?'':'none'}
+  var t=$('#turut');
+  if(t){
+    t.classList.remove('pend');
+    if(S.turut&&D.turutMengundang&&D.turutMengundang.length){
+      t.style.display='';$('#tm').innerHTML=D.turutMengundang.map(esc).join('<br>');
+      t.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});
+    }else t.style.display='none';
+  }
 }
 function muatPengaturan(){
   if(!FB.aktif)return Promise.resolve();
@@ -532,7 +543,10 @@ $('#side').innerHTML='<div class="e">The Wedding Of</div><div class="n">'+esc(NA
 var M=musik();
 var G=autoScroll();
 reveal();countdown();nav();galeri();form();
+if(FB.aktif){['hadiah','turut'].forEach(function(id){var e=$('#'+id);if(e)e.classList.add('pend')});terapkan.t=setTimeout(terapkan,5000)}
 muatPengaturan().then(function(){terapkan();daftar()});
+document.addEventListener('visibilitychange',function(){if(!document.hidden)muatPengaturan().then(terapkan)});
+window.addEventListener('pageshow',function(e){if(e.persisted)muatPengaturan().then(terapkan)});
 $$('[data-cp]').forEach(function(b){b.onclick=function(){salin(b.dataset.cp,'Berhasil disalin')}});
 $('#buka').onclick=function(){
   $('#cover').classList.add('out');document.body.classList.remove('lock');M.mulai();

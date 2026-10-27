@@ -224,7 +224,13 @@ $('#psR').onclick=function(){$('#ps').value=DEFAULT};
 $('#setS').onclick=function(){
   var p=$('#ps').value.trim();
   var o={ucapanPublik:$('#cUp').checked,turutTampil:$('#cTm').checked,rekening1:$('#cR1').checked,rekening2:$('#cR2').checked,pesan:p===DEFAULT?'':p};
-  FB.simpanPengaturan(o).then(function(){S.set=o;toast('Pengaturan disimpan')}).catch(gagal);
+  FB.simpanPengaturan(o).then(function(){
+    S.set=o;
+    return FB.pengaturan().catch(function(){return null});
+  }).then(function(p){
+    var cocok=p&&p.ucapanPublik===o.ucapanPublik&&p.turutTampil===o.turutTampil&&p.rekening1===o.rekening1&&p.rekening2===o.rekening2;
+    toast(cocok?'Pengaturan disimpan dan sudah aktif di undangan':'Tersimpan, tetapi belum terbaca oleh halaman tamu. Periksa Rules Firebase (Tahap 6D).');
+  }).catch(gagal);
 };
 $('#out').onclick=function(){FB.logout();location.reload()};
 })();

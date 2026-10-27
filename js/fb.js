@@ -35,7 +35,7 @@
   async function req(method, url, body, token) {
     var h = { 'Content-Type': 'application/json' };
     if (token) h.Authorization = 'Bearer ' + token;
-    var r = await fetch(url, { method: method, headers: h, body: body ? JSON.stringify(body) : undefined });
+    var r = await fetch(url, { method: method, headers: h, cache: 'no-store', body: body ? JSON.stringify(body) : undefined });
     var j = null;
     try { j = await r.json(); } catch (e) {}
     if (!r.ok) {
@@ -82,7 +82,7 @@
       return (j || []).filter(function (x) { return x.document; }).map(function (x) { return fromDoc(x.document); });
     },
     pengaturan: async function () {
-      try { return fromDoc(await req('GET', BASE + '/' + ROOT + '/pengaturan/utama' + KEY)); }
+      try { return fromDoc(await req('GET', BASE + '/' + ROOT + '/pengaturan/utama' + KEY + '&_=' + Date.now())); }
       catch (e) { if (e.status === 404) return null; throw e; }
     },
 
