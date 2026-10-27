@@ -61,10 +61,18 @@ window.DATA = {
     "foto/galeri-5.jpg",
     "foto/galeri-6.jpg"
   ],
-  "hadiah": [],
-  "alamatKado": "",
-  "turutMengundangTampil": false,
-  "turutMengundang": [],
+  "hadiah": [
+    { bank: "BCA",  nomor: "1234567890",   atasNama: "Budiyanto" },
+    { bank: "DANA", nomor: "09098787889", atasNama: "Neng Aap" },
+  ],
+
+  "alamatKado": "Kp. Sindang Baru",
+  "turutMengundangTampil": true,
+  "turutMengundang": [
+    "Keluarga Besar Bapak Nama Kakek & Ibu Nama Nenek",
+    "Keluarga Besar Bapak Nama Kakek & Ibu Nama Nenek",
+    "Seluruh Keluarga dan Sahabat"
+  ],
   "musik": "musik/musiku.mp3",
   "catatan": "",
   "ucapan": []
