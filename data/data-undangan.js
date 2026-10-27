@@ -2,10 +2,10 @@ window.DATA = {
   "kategori": "pernikahan",
   "kode": "rezanadia2027",
   "siteUrl": "https://ddarkan03-ux.github.io/Pernikahan-V10/",
-  "firebase": { "apiKey": "", "projectId": "" },
+  "firebase": { "apiKey": "AIzaSyBEA92p-xAjSyvDTWT09-zsuEDyjZg2dZw", "projectId": "undangan-saya" },
   "ucapanPublik": true,
   "model": "Pernikahan 1 - Sage & Emas",
-  "pemesan": { "nama": "Reza & Nadia", "whatsapp": "6281234567890" },
+  "pemesan": { "nama": "Reza & Nadia", "whatsapp": "6285716300907" },
   "foto": {
     "sampul": "foto/sampul.jpg",
     "latarUtama": "foto/latar-utama.jpg",
@@ -37,7 +37,7 @@ window.DATA = {
     "jamSelesai": "10:00",
     "tempat": "Masjid Al-Ikhlas",
     "alamat": "Jl. Melati No. 12, Menteng, Jakarta Pusat",
-    "maps": "https://maps.google.com/?q=Menteng+Jakarta+Pusat"
+    "maps": "https://maps.app.goo.gl/SNmrfyPbfgv5LRTT6"
   },
   "resepsi": {
     "tanggal": "2027-06-12",
@@ -45,7 +45,7 @@ window.DATA = {
     "jamSelesai": "14:00",
     "tempat": "Gedung Serbaguna Mawar",
     "alamat": "Jl. Mawar Raya No. 5, Menteng, Jakarta Pusat",
-    "maps": "https://maps.google.com/?q=Menteng+Jakarta+Pusat"
+    "maps": "https://maps.app.goo.gl/SNmrfyPbfgv5LRTT6"
   },
   "siaranLangsung": "",
   "cerita": [
