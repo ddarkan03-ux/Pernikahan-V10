@@ -1,7 +1,7 @@
 window.DATA = {
   "kategori": "pernikahan",
   "kode": "rezanadia2027",
-  "siteUrl": "https://username.github.io/undangan-reza-nadia/",
+  "siteUrl": "https://ddarkan03-ux.github.io/Pernikahan-V10/",
   "firebase": { "apiKey": "", "projectId": "" },
   "ucapanPublik": true,
   "model": "Pernikahan 1 - Sage & Emas",
