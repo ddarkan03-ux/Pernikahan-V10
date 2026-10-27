@@ -277,6 +277,7 @@ var pr=D.pria||{},wn=D.wanita||{},F=D.foto||{},ak=D.akad||null,rs=D.resepsi||nul
 var PANG=(pr.panggilan||'Mempelai Pria'),WANG=(wn.panggilan||'Mempelai Wanita');
 var NAMA=PANG+' & '+WANG;
 var tamu=(function(){var v=(new URLSearchParams(location.search).get('to')||'').trim().slice(0,40);return v})();
+var namaTamuForm=/^tamu\s+undangan$/i.test(tamu)?'':tamu;
 var S={ucapanPublik:D.ucapanPublik!==false,turut:!!D.turutMengundangTampil,rek:[true,true]};
 var utama=ak||rs;
 
@@ -348,7 +349,7 @@ function build(){
 
   h+='<section class="sec" id="ucapan">'+sprig().replace('class="spr"','class="spr tr"')+'<div class="eyebrow rv">RSVP</div><h2 class="rv">Ucapan &amp; Doa</h2>'+ORN+
     '<p class="sub rv">Konfirmasi kehadiran dan kirimkan doa terbaik untuk kami.</p>'+
-    '<form class="fm rv" id="fm" autocomplete="off"><label class="l" for="fn">Nama</label><input type="text" id="fn" maxlength="40" required placeholder="Nama Anda" value="'+esc(tamu)+'">'+
+    '<form class="fm rv" id="fm" autocomplete="off"><label class="l" for="fn">Nama</label><input type="text" id="fn" maxlength="40" required placeholder="Nama Anda" value="'+esc(namaTamuForm)+'">'+
     '<label class="l" for="fi">Ucapan &amp; Doa <span class="cnt" id="cnt">0/300</span></label><textarea id="fi" maxlength="300" required placeholder="Tuliskan ucapan dan doa..."></textarea>'+
     '<label class="l">Konfirmasi Kehadiran</label><div class="rd"><label><input type="radio" name="hd" value="hadir" checked> Insya Allah, saya hadir</label><label><input type="radio" name="hd" value="tidak"> Mohon maaf, belum bisa hadir</label><label><input type="radio" name="hd" value="ragu"> Masih ragu</label></div>'+
     (D.pemesan&&D.pemesan.whatsapp?'<label class="ck"><input type="checkbox" id="fw"> Kirim juga ke WhatsApp tuan rumah</label>':'')+
