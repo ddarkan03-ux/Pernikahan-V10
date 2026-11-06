@@ -63,9 +63,20 @@ window.DATA = {
   ],
   "hadiah": [
     { bank: "BCA",  nomor: "1234567890",   atasNama: "Budiyanto" },
-    { bank: "DANA", nomor: "09098787889", atasNama: "Neng Aap" },
+    { bank: "NEO",  nomor: "1234567890",   atasNama: "Budiyanto" },
+    { bank: "DANA", nomor: "09098787889", atasNama: "Neng Aap" }
   ],
 
+  "pihakKlien": "pria",
+  "panelAdmin": {
+    "ucapanPublik": true,
+    "turutMengundang": true,
+    "rekening": true,
+    "urutanNama": true,
+    "pesanWa": true,
+    "pratinjauLink": true
+  },
+  "logoBank": true,
   "alamatKado": "Kp. Sindang Baru",
   "turutMengundangTampil": true,
   "turutMengundang": [
